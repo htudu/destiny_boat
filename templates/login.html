@@ -1,27 +1,26 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Login Page</title>
-<link href="{{ url_for('static', filename='css/login.css')}}" rel="stylesheet" type="text/css" />
-<link href="https://fonts.googleapis.com/css?family=Geneva" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='css/destinyboat_login.css')}}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Log In</title>
 </head>
-
-<body>
-   <div class="mysignin">
-
-<form name="login" action="/dashboard" method="post">
-<h2 style="color:#fff;">User Login</h2>
-<input type="text" name="uname" placeholder="username"/><br /><br />
-<input type="password" name="pass" placeholder="password"/><br /><br />
-<a href="/password">
-   <input type="Submit" value="Login" /></a><br /><br />
-<div id="container">
-
-</form>
-<p>&copy; == Destiny Boat == | 2019</p>
-<p> Visitor: {{visitor}}</p>
-</div>
-
-
+<body background="{{ url_for('static', filename='login_tree.jpeg') }}">
+    <div class="login-box">
+        <h1>Log In</h1>
+        <div class="text-box">
+            <i class="fa fa-user"></i>
+            <input type="text" placeholder="username">
+        </div>
+        <div class="text-box">
+            <i class="fa fa-lock"></i>
+            <input type="password" placeholder="password">
+        </div>
+        <input type="button" class="btn" value="Log In">
+    </div>
+    
 </body>
 </html>
