@@ -1,0 +1,15 @@
+{
+  "params":
+  {
+    "local_server":"True",
+    "local_uri": "mysql://root:@localhost/myblog",
+    "prod_uri":"mysql://root:@localhost/myblog",
+    "blog_name": "Hambira's Blog",
+    "no_of_posts": 6,
+    "admin_user":"root",
+    "admin_password": "admin#2021",
+    "upload_location":"uploads/",
+    "deployment_type":"dev"
+  }
+
+}

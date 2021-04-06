@@ -1,0 +1,5 @@
+flask
+flask_sqlalchemy==2.5.1
+flask_restful
+pymongo==3.11.3
+
