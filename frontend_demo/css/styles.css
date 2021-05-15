@@ -1,7 +1,8 @@
 body {
-    color: blue;
+    color: black;
     margin: 0em;
     padding: 100px;
+    background: linear-gradient(to bottom right, #eb003b 0%, #767aea 74%);
 }
 
 h1 {
@@ -15,6 +16,10 @@ h1 {
 p {
     padding-left: 12px;
 }  
+
+.darkmode {
+    background-color: transparent;
+}
 
 #outer a {
     display: inline-block;
@@ -52,7 +57,7 @@ span {
 }
 
 .default {
-    color: green;
+    color: burlywood;
 }
 
 .m1 a{

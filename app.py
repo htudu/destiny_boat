@@ -106,7 +106,7 @@ def home():
         db.session.commit()
         
 
-    return render_template('login.html', params=params, visitor = count_value)
+    return render_template('birthday.html', params=params, visitor = count_value)
 
 
 @app.route("/post/<string:post_slug>", methods=['GET','POST'])
@@ -239,6 +239,6 @@ def contact():
 
 if __name__ == '__main__':
     if params["deployment_type"] == "production":
-        app.run(host='0.0.0.0',port=5050,debug=False)
+        app.run(host='0.0.0.0',port=5050,debug=True)
     else:
         app.run(host='0.0.0.0',port=5050,debug=True)
