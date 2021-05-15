@@ -65,6 +65,9 @@ class Comments(db.Model):
     message = db.Column(db.String(550), nullable=False)
 db.create_all()
 
+@app.route("/profile")
+def portfolio():
+    return render_template('portfolio.html')
 
 @app.route("/")
 def home():
