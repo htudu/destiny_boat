@@ -63,6 +63,7 @@ class Comments(db.Model):
     name = db.Column(db.String(50), nullable=False, unique=True)
     emailid = db.Column(db.String(65), nullable=False, unique=False)
     message = db.Column(db.String(550), nullable=False)
+
 db.create_all()
 
 @app.route("/profile")
