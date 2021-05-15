@@ -7,9 +7,13 @@ h1 {
     font-family: sans-serif;
     color: grey;
     opacity: 0.5;
-  }
-  
-  canvas {
+}
+
+.big {
+    font-size: 400%;
+}
+
+canvas {
     overflow-y: hidden;
     overflow-x: hidden;
     width: 100%;
