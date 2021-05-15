@@ -4,9 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=p, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <title>App</title>
 </head>
 <body>
-    <p>this is testing</p>
+    <h1>App Recontruction</h1>
+    <div class="block-one">
+        <p>As the body has been set to have a color of blue this is inherited through the descendants.</p>
+        <p>We can change the color by targetting the element with a selector, such as this <span>span</span>.</p>
+    </div>
+    <ul class="main">
+        <li>Item One</li>
+        <li>Item Two
+            <ul>
+                <li>2.1</li>
+                <li>2.2</li>
+            </ul>
+        </li>
+        <li>Item Three
+            <ul class="special">
+                <li>3.1
+                    <ul>
+                        <li>3.1.1</li>
+                        <li>3.1.2</li>
+                    </ul>
+                </li>
+                <li>3.2</li>
+            </ul>
+        </li>
+    </ul>
+    <ul class="main default">
+        <li>Default <a href="#">link</a> color</li>
+        <li class="m1">Inherit the <a href="#">link</a> color</li>
+        <li class="m2">Reset the <a href="#">link</a> color</li>
+        <li class="m3">Unset the <a href="#">link</a> color</li>
+    </ul>
+    <div id="outer" class="container main">
+        <div id="inner" class="container">
+            <ul>
+                <li class="nav" ><a href="#">One</a></li>
+                <li class="nav"><a href="#">Two</a></li>
+            </ul>
+        </div>
+    </div>
+    
 </body>
 </html>
