@@ -6,9 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ url_for('static', filename='css/birthday.css')}}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Log In</title>
+    <title>Happy Birthday</title>
+    <style>
+      .navbar {
+  width: 100%;
+  background-color: black;
+  overflow: auto;
+}
+
+.navbar a {
+  float: left;
+  padding: 12px;
+  color:white;
+  text-decoration: none;
+  font-size: 17px;
+  width: 25%; /* Four links of equal widths */
+  text-align: center;
+}
+
+.navbar a:hover {
+  background-color: #000;
+}
+
+.navbar a.active {
+  background-color:rgb(136, 16, 16);
+}
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+    </style>
 </head>
 <body >
+    <div class="navbar">
+      <a href="/">Home</a> 
+      <a href="one">Gallery</a> 
+      <a href="three">Wishes</a> 
+    </div>
     <h1>Happy Birthday! Anjali Singh!!!!</h1>
     <canvas id="canvas"></canvas>
 </body>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='css/scroll_gallery.css')}}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Happy Birthday</title>
+    <style> 
+    /* .item-1 {
+    background-image: url("{{ url_for('static',filename='posts_img/anj_2020.jpg')}}")
+    }
+    .item-2 {
+    background-image: url("{{ url_for('static',filename='posts_img/anj_2019.jpeg')}}")
+    }
+    .item-4 {
+    background-image: url("{{ url_for('static',filename='posts_img/anj_2019a.jpg')}}")
+    }
+    .item-3 {
+    background-image: url("{{ url_for('static',filename='posts_img/anj_2019d.jpg')}}")
+    }
+    .item-5 {
+    background-image: url("{{ url_for('static',filename='posts_img/anj_2019c.jpg')}}")
+    } */
+    .navbar {
+  width: 100%;
+  background-color: black;
+  overflow: auto;
+}
+
+.navbar a {
+  float: left;
+  padding: 12px;
+  color:white;
+  text-decoration: none;
+  font-size: 17px;
+  width: 25%; /* Four links of equal widths */
+  text-align: center;
+}
+
+.navbar a:hover {
+  background-color: #000;
+}
+
+.navbar a.active {
+  background-color:rgb(136, 16, 16);
+}
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+    </style>
+</head>
+<body >
+    <div class="navbar">
+        <a href="/">Home</a> 
+        <a href="one">Gallery</a> 
+        <a href="three">Wishes</a> 
+      </div>
+    <article>
+        <figure>
+            <img src="{{ url_for('static',filename='posts_img/bd2.jpeg')}}" alt />
+        </figure>
+        <section>
+                <div>
+                    <h1>25th Birthday</h1>
+                    <p>25 Years of Blessings,<br>
+                        300 Months of Togetherness,<br>
+                        1304 weeks of Happiness,<br> 
+                        9,125 Days of Friendship,<br>
+                        219,000 Hours of Laughter,<br> 
+                        13,148,640 minutes of Love,<br> 
+                        788,918,400 seconds of Wonderful Memories! 
+                    </p>
+                </div>
+        </section>
+        
+        <figure>
+            <img src="{{ url_for('static',filename='posts_img/db6.jpeg')}}" alt />
+        </figure>
+        <section>
+            <div>
+                <h2>Dream<br/>
+                &ldquo;Big&rdquo;</h2>
+                <p>May all your dreams come incredibly true and only get better with time! Have an amazing 25th birthday!</p>
+            </div>
+        </section>
+        
+        <figure>
+            <img src="{{ url_for('static',filename='posts_img/bd9.jpeg')}}" alt />
+        </figure>
+        <section>
+            <div>
+                <h2>Life is Magical</a></h2>
+                <p>--Disney Land</p>
+                <p>Life is a journey to be experienced, not a problem to be solved.</p>
+            </div>
+        </section>
+        
+        
+    </article>  
+</body>
+</html>

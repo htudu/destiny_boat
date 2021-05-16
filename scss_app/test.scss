@@ -1,0 +1,286 @@
+/*
+** CSS Grid Cross Browser Mixins
+*/
+@mixin display-grid {
+  display: -ms-grid;
+  display: grid;
+}
+
+@mixin display-inline-grid {
+  display: -ms-inline-grid;
+  display: inline-grid;
+}
+
+@mixin grid-template-columns($col) {
+  -ms-grid-columns: $col;
+  grid-template-columns: $col;
+}
+
+@mixin grid-template-rows($row) {
+  -ms-grid-rows: $row;
+  grid-template-rows: $row;
+}
+
+@mixin grid-item ($col-start, $col-end, $row-start, $row-end) {
+  -ms-grid-column: $col-start;
+  -ms-grid-column-span: $col-end - $col-start;
+  -ms-grid-row: $row-start;
+  -ms-grid-row-span: $row-end - $row-start;
+  grid-column: #{$col-start}/#{$col-end};
+  grid-row: #{$row-start}/#{$row-end};
+}
+
+@mixin align-self($align-self) {
+  -ms-grid-column-align: $align-self;
+  align-self: $align-self;
+}
+
+@mixin justify-self($justify-self) {
+  -ms-grid-row-align: $justify-self;
+  justify-self: $justify-self;
+}
+
+
+
+
+/*
+** CSS Variables
+*/
+$bp-960: 960px;
+$bp-ipad-portrait: 768px; // iPad 9.7"
+$bp-iphone-landscape: 667px; // iPhone 8, 7, 6s+, 6s, 6s, 6
+$bp-iphone-plus-portrait: 414px; // iPhone 8+, 7+
+$ease-out: cubic-bezier(0,0,.18,1);
+
+
+
+
+// Minimal CSS Reset
+*, *:before, *:after {
+  box-sizing: border-box;
+  outline: none;
+}
+
+html, body { height: 100%; }
+
+body, h1, h2, h3, h4, h5, h6, p, img, ol, ul {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-weight: inherit;
+  font-family: Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, "Droid Sans", "Helvetica Neue", Helvetica, sans-serif;
+}
+
+
+
+
+h1 {
+  color: #eba30a;
+  font-size: 72px;
+  font-weight: bold;
+  line-height: 1.25em;
+}
+
+.section--brands {
+  overflow-x: hidden;
+  background-image: url(https://source.unsplash.com/hOuJYX2K5DA/1920x1156);
+  background-color: #2b2b2b;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  // Dark Overlay
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,.65);
+  }
+
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: none;
+    min-height: 100vh;
+    position: relative;
+    padding: 40px 58px 80px;
+
+    @media screen and (max-width: $bp-ipad-portrait) {
+      padding: 40px 20px;
+    }
+  }
+
+  .block {
+    @include display-grid;
+    @include grid-template-columns(1fr 10px 1fr 10px 1fr 10px 1fr);
+    @include grid-template-rows(1fr 90px 80px 10px 176px 10px 80px 90px 186px);
+    max-width: 1310px;
+    margin: 0 auto;
+    transform: skewX(-15deg);
+
+    @media screen and (max-width: $bp-ipad-portrait) {
+      display: flex;
+      flex-wrap: wrap;
+      transform: none;
+      margin-top: -20px;
+      margin-left: -20px;
+    }
+
+    li {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      
+      &:nth-of-type(1) { @include grid-item(1, 4, 1, 2); }
+      &:nth-of-type(2) { @include grid-item(1, 2, 3, 8); }
+      &:nth-of-type(3) { @include grid-item(3, 4, 2, 6); }
+      &:nth-of-type(4) { @include grid-item(3, 4, 7, 10); }
+      &:nth-of-type(5) { @include grid-item(5, 6, 1, 4); }
+      &:nth-of-type(6) { @include grid-item(5, 6, 5, 9); }
+      &:nth-of-type(7) { @include grid-item(7, 8, 3, 8); }
+
+      &:nth-of-type(1),
+      &:nth-of-type(4),
+      &:nth-of-type(6) {
+        align-items: flex-start;
+      }
+
+      &:nth-of-type(1) {
+        padding-right: 10px;
+        padding-bottom: 20px;
+      }
+      
+      &:not(:nth-of-type(1)) {
+        a {
+          background-color: #000;
+        }
+      }
+
+      @media screen and (max-width: $bp-ipad-portrait) {
+        flex: 0 0 auto;
+        width: calc(33.33% - 20px);
+        margin-top: 20px;
+        margin-left: 20px;
+
+        &:nth-of-type(1) {
+          width: 100%;
+        }
+      }
+
+      @media screen and (max-width: $bp-iphone-landscape) {
+        width: calc(50% - 20px);
+      }
+
+      @media screen and (max-width: $bp-iphone-plus-portrait) {
+        width: calc(100% - 20px);
+      }
+
+      strong {
+        color: #fff;
+      }
+
+      p {
+        margin-top: 10px;
+        margin-bottom: 20px;
+        color: #cfcfcf;
+      }
+
+      a {
+        display: block;
+        position: relative;
+        width: 100%;
+        height: 356px;
+        overflow: hidden;
+
+        &:before, &:after {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          z-index: 2;
+          background-color: #eba30a;
+          opacity: 0;
+          transition: opacity .5s $ease-out;
+        }
+        
+        // Dark overlay
+        &:before {
+          z-index: 1;
+          background-color: #000;
+          opacity: .3;
+        }
+
+        &:hover {
+          &:after {
+            opacity: .5;
+
+            // Disable hover style on touch device
+            @media (hover:none), (hover:on-demand) {
+              opacity: 0;
+            }
+          }
+          
+          img {
+            transform: 
+            scale(1.05, 1.05)
+            skewX(15deg)
+            translate(-50%, -50%);
+          }
+        }
+
+        img, i {
+          display: block;
+          position: absolute;
+          top: 50%;
+          transform: 
+            scale(1,1)
+            skewX(15deg)
+            translate(-50%, -50%);
+          transition: all .5s $ease-out;
+          transform-origin: 50% center;
+
+          @media screen and (max-width: $bp-ipad-portrait) {
+            transform: 
+            scale(1,1)
+            skewX(0deg)
+            translate(-50%, -50%);
+          }
+
+          &.brand-cover {
+            left: 65%; // (48px / 320px * 100%) + 50% = 65%
+
+            @media screen and (max-width: $bp-ipad-portrait) {
+              left: 50%;
+            }
+          }
+
+          &.brand-logo {
+            z-index: 3;
+            max-width: 95%;
+            left: 55%; // (16px / 320px * 100%) + 50% = 55%
+            font-size: 0;
+            -webkit-filter: drop-shadow(0 2px 0 rgba(0,0,0,.3));
+            filter: drop-shadow(0 2px 0 rgba(0,0,0,.3));
+            
+            &:before {
+              color: #fff;
+              font-size: 72px;
+            }
+
+            @media screen and (max-width: $bp-ipad-portrait) {
+              left: 50%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
